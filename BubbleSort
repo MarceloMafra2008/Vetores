@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main()
+{
+    float vet[7];
+    float maior=0, menor=0, media=0, total=0;
+    int i, j, cont=0, aux;
+    
+    for(i=0; i<7; i++)
+    {
+        printf("\nInsira os km de cada corrida:");
+        scanf("%f", &vet[i]);
+        total += vet[i];
+        cont ++;
+    }
+    
+    for(i=0; i<7-1; i++)
+    {
+        for(j=i+1; j<7; j++)
+        {
+            if(vet[i]>vet[j])
+            {
+                aux= vet[i];
+                vet[i]= vet[j];
+                vet[j]= aux;
+            }
+        }
+    }
+    
+    maior = vet[6];
+    menor = vet[0];
+    
+    
+    media = total/cont;
+    
+    printf("\nMaior distancia:%.2f", maior);
+    printf("\nMenor distancia:%.2f", menor);
+    printf("\nMedia da semana percorrida:%.2f", media);
+    
+}
