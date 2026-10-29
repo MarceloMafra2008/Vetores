@@ -1,0 +1,46 @@
+// Durante uma corrida de automóveis com 5 voltas de duração foram anotados para um piloto, na ordem,
+//os tempos registrados em cada volta. Fazer um programa em C para ler os tempos das 5 voltas, calcular e imprimir:
+
+//• melhor tempo;
+
+//• a volta em que o melhor tempo ocorreu;
+
+//• tempo médio das 5 voltas.
+
+#include <stdio.h>
+int main()
+{
+    float vet[5], aux, menor, media=0, soma=0;
+    int i, j, cont=0, volta;
+    
+    for(i=0; i<5; i++)
+    {
+        printf("\nInsira o tempo de duracao de cada volta[%d]:", i + 1);
+        scanf("%f", &vet[i]);
+        soma += vet[i];
+        cont ++;
+    }
+    printf("\n");
+    media = soma/cont;
+    
+    menor = vet[0];
+    volta = 1;
+    
+    for(i=1; i<5; i++)
+    {
+        if(vet[i]<menor)
+        {
+            menor=vet[i];// 4 , 3 
+            volta= i + 1; //1 + 1 = 2 + 1 =3
+        }
+    }
+    
+    for(i=0;i < 5; i++)
+    {
+        printf("\nVolta[%d] durou:%.2f", i + 1, vet[i]);
+    }
+    
+    printf("\nMelhor tempo[%.2f] na volta[%d]", menor, volta);
+    printf("\nTempo medio das 5 voltas:%.2f", media);
+    
+}
